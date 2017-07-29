@@ -8,20 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		954B4B461F2C500C008C1341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B4B451F2C500C008C1341 /* AppDelegate.swift */; };
-		954B4B481F2C500C008C1341 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B4B471F2C500C008C1341 /* ViewController.swift */; };
 		954B4B4B1F2C500C008C1341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954B4B491F2C500C008C1341 /* Main.storyboard */; };
 		954B4B4D1F2C500C008C1341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954B4B4C1F2C500C008C1341 /* Assets.xcassets */; };
 		954B4B501F2C500C008C1341 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954B4B4E1F2C500C008C1341 /* LaunchScreen.storyboard */; };
+		954B4B5A1F2C50D8008C1341 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 954B4B591F2C50D8008C1341 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		954B4B421F2C500C008C1341 /* ContactList-CloudKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ContactList-CloudKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		954B4B451F2C500C008C1341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		954B4B471F2C500C008C1341 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		954B4B4A1F2C500C008C1341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		954B4B4C1F2C500C008C1341 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		954B4B4F1F2C500C008C1341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		954B4B511F2C500C008C1341 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		954B4B571F2C50B3008C1341 /* ContactList-CloudKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ContactList-CloudKit.entitlements"; sourceTree = "<group>"; };
+		954B4B591F2C50D8008C1341 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954B4B5A1F2C50D8008C1341 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +42,7 @@
 			children = (
 				954B4B441F2C500C008C1341 /* ContactList-CloudKit */,
 				954B4B431F2C500C008C1341 /* Products */,
+				954B4B581F2C50D8008C1341 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +57,30 @@
 		954B4B441F2C500C008C1341 /* ContactList-CloudKit */ = {
 			isa = PBXGroup;
 			children = (
-				954B4B451F2C500C008C1341 /* AppDelegate.swift */,
-				954B4B471F2C500C008C1341 /* ViewController.swift */,
+				954B4B571F2C50B3008C1341 /* ContactList-CloudKit.entitlements */,
 				954B4B491F2C500C008C1341 /* Main.storyboard */,
+				954B4B5B1F2C50F7008C1341 /* Resources */,
+			);
+			path = "ContactList-CloudKit";
+			sourceTree = "<group>";
+		};
+		954B4B581F2C50D8008C1341 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				954B4B591F2C50D8008C1341 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		954B4B5B1F2C50F7008C1341 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				954B4B451F2C500C008C1341 /* AppDelegate.swift */,
 				954B4B4C1F2C500C008C1341 /* Assets.xcassets */,
 				954B4B4E1F2C500C008C1341 /* LaunchScreen.storyboard */,
 				954B4B511F2C500C008C1341 /* Info.plist */,
 			);
-			path = "ContactList-CloudKit";
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +117,14 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = H9L7P6ZCN6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -137,7 +164,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				954B4B481F2C500C008C1341 /* ViewController.swift in Sources */,
 				954B4B461F2C500C008C1341 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +289,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ContactList-CloudKit/ContactList-CloudKit.entitlements";
 				DEVELOPMENT_TEAM = H9L7P6ZCN6;
 				INFOPLIST_FILE = "ContactList-CloudKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -276,6 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ContactList-CloudKit/ContactList-CloudKit.entitlements";
 				DEVELOPMENT_TEAM = H9L7P6ZCN6;
 				INFOPLIST_FILE = "ContactList-CloudKit/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
