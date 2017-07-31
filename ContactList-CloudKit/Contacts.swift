@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-struct Contacts {
+class Contacts {
     
     static let typeKey = "Contact"
     static let namekey = "name"
@@ -22,6 +22,13 @@ struct Contacts {
     var email: String?
     var cloudKitRecordID: CKRecordID?
     
+    init(name: String, phoneNumber: Int?, email: String) {
+        
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.email = email
+    }
+    
     init?(cloudKitRecord: CKRecord) {
         
         guard let name = cloudKitRecord[Contacts.namekey] as? String,
@@ -32,5 +39,19 @@ struct Contacts {
         self.phoneNumber = phoneNumber
         self.email = email
         self.cloudKitRecordID = cloudKitRecord.recordID
+    }
+    
+    var cloudKtiRecord: CKRecord {
+        
+        let recordID = cloudKitRecordID ?? CKRecordID(recordName: UUID().uuidString)
+        let record = CKRecord(recordType: Contacts.typeKey, recordID: recordID)
+        
+        record.setValue(name, forKey: Contacts.namekey)
+        record.setValue(phoneNumber, forKey: Contacts.numberKey)
+        record.setValue(email, forKey: Contacts.emailKey)
+        
+        self.cloudKitRecordID = recordID
+        
+        return record
     }
 }
