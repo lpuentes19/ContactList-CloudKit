@@ -13,7 +13,7 @@
         <!--Contacts-->
         <scene sceneID="D6l-0g-kie">
             <objects>
-                <tableViewController id="1Re-v4-QRm" sceneMemberID="viewController">
+                <tableViewController id="1Re-v4-QRm" customClass="ContactListTableViewController" customModule="ContactList_CloudKit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iWh-M8-zzk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="F6N-2Y-eeu" kind="show" identifier="toDetailVC" id="hUb-ul-nkg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,7 +48,7 @@
                     <navigationItem key="navigationItem" title="Contacts" id="ZZ0-BS-uVT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jci-IV-IYp">
                             <connections>
-                                <segue destination="F6N-2Y-eeu" kind="show" id="HaO-fv-FGm"/>
+                                <segue destination="F6N-2Y-eeu" kind="show" identifier="" id="HaO-fv-FGm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -159,4 +162,7 @@
             <point key="canvasLocation" x="-228" y="248.72563718140933"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hUb-ul-nkg"/>
+    </inferredMetricsTieBreakers>
 </document>

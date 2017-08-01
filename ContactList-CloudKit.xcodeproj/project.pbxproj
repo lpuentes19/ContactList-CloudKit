@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9505A8361F31483800AAE955 /* ContactListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9505A8351F31483800AAE955 /* ContactListTableViewController.swift */; };
+		9505A8391F3148E700AAE955 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9505A8381F3148E700AAE955 /* ContactDetailsViewController.swift */; };
 		954B4B461F2C500C008C1341 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B4B451F2C500C008C1341 /* AppDelegate.swift */; };
 		954B4B4B1F2C500C008C1341 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954B4B491F2C500C008C1341 /* Main.storyboard */; };
 		954B4B4D1F2C500C008C1341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954B4B4C1F2C500C008C1341 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9505A8351F31483800AAE955 /* ContactListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListTableViewController.swift; sourceTree = "<group>"; };
+		9505A8381F3148E700AAE955 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		954B4B421F2C500C008C1341 /* ContactList-CloudKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ContactList-CloudKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		954B4B451F2C500C008C1341 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		954B4B4A1F2C500C008C1341 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9505A8371F31484300AAE955 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9505A8351F31483800AAE955 /* ContactListTableViewController.swift */,
+				9505A8381F3148E700AAE955 /* ContactDetailsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		954B4B391F2C500C008C1341 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +76,7 @@
 			children = (
 				954B4B571F2C50B3008C1341 /* ContactList-CloudKit.entitlements */,
 				954B4B491F2C500C008C1341 /* Main.storyboard */,
+				9505A8371F31484300AAE955 /* ViewControllers */,
 				956389DB1F30287700D204EC /* ModelControllers */,
 				95A728E31F2EF8B4004B5CF8 /* Models */,
 				954B4B5B1F2C50F7008C1341 /* Resources */,
@@ -186,8 +200,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9505A8391F3148E700AAE955 /* ContactDetailsViewController.swift in Sources */,
 				95A728E21F2EF8B0004B5CF8 /* Contacts.swift in Sources */,
 				956389DA1F30287300D204EC /* ContactsController.swift in Sources */,
+				9505A8361F31483800AAE955 /* ContactListTableViewController.swift in Sources */,
 				954B4B461F2C500C008C1341 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
