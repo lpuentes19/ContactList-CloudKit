@@ -15,7 +15,7 @@ class ContactsController {
     
     var contacts = [Contacts]()
     
-    // Saving contact to CloudKit
+    // MARK: Saving contact to CloudKit
     func addContacts(name: String, phoneNumber: Int, email: String) {
         
         let contact = Contacts(name: name, phoneNumber: phoneNumber, email: email)
@@ -30,7 +30,7 @@ class ContactsController {
         }
     }
     
-    //Fetching contacts from CloudKit
+    // MARK: Fetching contacts from CloudKit
     func fetchContacts() {
         
         let predicate = NSPredicate(value: true)
@@ -50,7 +50,7 @@ class ContactsController {
         }
     }
     
-    // Delete contact from CloudKit
+    // MARK: Delete contact from CloudKit
     func delete(contact: Contacts) {
         
         guard let index = contacts.index(of: contact) else { return }
@@ -63,5 +63,27 @@ class ContactsController {
         }
     }
     
+    // MARK: Modifying contacts in CloudKit
+    func modify(contact: Contacts, name: String, phoneNumber: Int, email: String) {
+        
+        contact.name = name
+        contact.phoneNumber = phoneNumber
+        contact.email = email
+        
+        let contactRecords = [contact.cloudKitRecord]
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: contactRecords, recordIDsToDelete: nil)
+        
+        operation.savePolicy = .changedKeys
+        operation.queuePriority = .high
+        operation.qualityOfService = .userInteractive
+        
+        operation.modifyRecordsCompletionBlock = { records, deletedRecordIDs, error in
+            if let error = error {
+                print("Error modifying record in CloudKit: \(error)")
+            }
+        }
+        CKContainer.default().publicCloudDatabase.add(operation)
+    }
 }
 
