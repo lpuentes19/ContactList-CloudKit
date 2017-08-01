@@ -30,6 +30,26 @@ class ContactsController {
         }
     }
     
+    //Fetching contacts from CloudKit
+    func fetchContacts() {
+        
+        let predicate = NSPredicate(value: true)
+        
+        let query = CKQuery(recordType: Contacts.typeKey, predicate: predicate)
+        
+        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { (record, error) in
+            if let error = error {
+                print("Error fetching record from CloudKit: \(error)")
+            }
+            
+            guard let record = record else { return }
+            
+            let contacts = record.flatMap { Contacts(cloudKitRecord: $0)}
+            
+            self.contacts = contacts
+        }
+    }
+    
     
 }
 
