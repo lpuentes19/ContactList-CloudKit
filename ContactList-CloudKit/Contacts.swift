@@ -41,7 +41,7 @@ class Contacts {
         self.cloudKitRecordID = cloudKitRecord.recordID
     }
     
-    var cloudKtiRecord: CKRecord {
+    var cloudKitRecord: CKRecord {
         
         let recordID = cloudKitRecordID ?? CKRecordID(recordName: UUID().uuidString)
         let record = CKRecord(recordType: Contacts.typeKey, recordID: recordID)
