@@ -55,3 +55,11 @@ class Contacts {
         return record
     }
 }
+
+extension Contacts: Equatable {
+    
+    static func ==(lhs: Contacts, rhs: Contacts) -> Bool {
+        
+        return lhs.cloudKitRecordID == rhs.cloudKitRecordID
+    }
+}

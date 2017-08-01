@@ -50,6 +50,18 @@ class ContactsController {
         }
     }
     
+    // Delete contact from CloudKit
+    func delete(contact: Contacts) {
+        
+        guard let index = contacts.index(of: contact) else { return }
+        self.contacts.remove(at: index)
+        
+        CKContainer.default().publicCloudDatabase.delete(withRecordID: contact.cloudKitRecord.recordID) { (record, error) in
+            if let error = error {
+                print("Error deleting record from CloudKit: \(error)")
+            }
+        }
+    }
     
 }
 
