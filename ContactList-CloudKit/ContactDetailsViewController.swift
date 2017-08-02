@@ -19,6 +19,11 @@ class ContactDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: contactsWereChangedNotification, object: nil)
+    }
+    
+    func refresh() {
+        view.setNeedsDisplay()
     }
     
     func updateViews() {

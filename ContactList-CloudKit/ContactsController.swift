@@ -9,11 +9,19 @@
 import Foundation
 import CloudKit
 
+let contactsWereChangedNotification = Notification.Name("ContactsWereChanged")
+
 class ContactsController {
     
     static let shared = ContactsController()
     
-    var contacts = [Contacts]()
+    var contacts = [Contacts]() {
+        didSet {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: contactsWereChangedNotification, object: self)
+            }
+        }
+    }
     
     // MARK: Saving contact to CloudKit
     func addContacts(name: String, phoneNumber: Int, email: String) {
