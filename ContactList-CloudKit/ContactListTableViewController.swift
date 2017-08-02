@@ -12,6 +12,12 @@ class ContactListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ContactsController.shared.fetchContacts()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source

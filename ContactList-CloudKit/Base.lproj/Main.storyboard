@@ -60,7 +60,7 @@
         <!--Create Contact-->
         <scene sceneID="QX6-iM-I3s">
             <objects>
-                <viewController id="F6N-2Y-eeu" sceneMemberID="viewController">
+                <viewController id="F6N-2Y-eeu" customClass="ContactDetailsViewController" customModule="ContactList_CloudKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aVn-e2-eG9"/>
                         <viewControllerLayoutGuide type="bottom" id="Ky9-M6-ZNu"/>
@@ -136,8 +136,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create Contact" id="fpp-50-G2D">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Kgq-C9-OT4"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Kgq-C9-OT4">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="F6N-2Y-eeu" id="VFS-QJ-YZy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="Per-iX-apN" id="I8B-cV-ap6"/>
+                        <outlet property="nameTextField" destination="Bhy-xZ-mwD" id="Kc0-oc-qJm"/>
+                        <outlet property="phoneTextField" destination="F8h-Xw-l0t" id="mJF-79-hlD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Pr-je-wXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
