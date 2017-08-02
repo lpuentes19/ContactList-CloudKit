@@ -93,5 +93,24 @@ class ContactsController {
         }
         CKContainer.default().publicCloudDatabase.add(operation)
     }
+    
+    // MARK: Subscription
+    func subscribeToNewContacts() {
+        
+        let predicate = NSPredicate(value: true)
+        
+        let subscription = CKQuerySubscription(recordType: Contacts.typeKey, predicate: predicate, options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKNotificationInfo()
+        notificationInfo.alertBody = "New contact received!"
+        notificationInfo.shouldSendContentAvailable = true
+        subscription.notificationInfo = notificationInfo
+        
+        CKContainer.default().publicCloudDatabase.save(subscription) { (subscription, error) in
+            if let error = error {
+                NSLog("Error subscribing to new contact: \(error)")
+            }
+        }
+    }
 }
 

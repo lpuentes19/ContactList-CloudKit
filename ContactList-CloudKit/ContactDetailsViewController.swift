@@ -42,19 +42,16 @@ class ContactDetailsViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        guard let text = phoneTextField.text else { return }
-        
         guard let name = nameTextField.text, !name.isEmpty,
+            let phone = phoneTextField.text,
             let email = emailTextField.text else { return }
         
-        guard let phoneNumber = Int(text) else {
-            return phoneTextField.text = ""
-        }
+        guard let number = Int(phone) else { return }
         
         if let contact = contact {
-            ContactsController.shared.modify(contact: contact, name: name, phoneNumber: phoneNumber, email: email)
+            ContactsController.shared.modify(contact: contact, name: name, phoneNumber: number, email: email)
         } else {
-            ContactsController.shared.addContacts(name: name, phoneNumber: phoneNumber, email: email)
+            ContactsController.shared.addContacts(name: name, phoneNumber: number, email: email)
         }
         navigationController?.popViewController(animated: true)
     }
