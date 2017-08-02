@@ -18,11 +18,11 @@ class Contacts {
     static let identifierKey = "identifier"
     
     var name: String
-    var phoneNumber: Int?
+    var phoneNumber: Int
     var email: String?
     var cloudKitRecordID: CKRecordID?
     
-    init(name: String, phoneNumber: Int?, email: String) {
+    init(name: String, phoneNumber: Int, email: String?) {
         
         self.name = name
         self.phoneNumber = phoneNumber

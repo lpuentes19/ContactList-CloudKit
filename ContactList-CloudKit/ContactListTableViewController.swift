@@ -12,8 +12,9 @@ class ContactListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ContactsController.shared.fetchContacts()
-        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: contactsWereChangedNotification, object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: contactsWereChangedNotification, object: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

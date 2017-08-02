@@ -18,6 +18,7 @@ class ContactDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateViews()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: contactsWereChangedNotification, object: nil)
     }
@@ -32,7 +33,7 @@ class ContactDetailsViewController: UIViewController {
         
         title = "Edit Contact"
         nameTextField.text = contact.name
-        phoneTextField.text = "\(String(describing: contact.phoneNumber))"
+        phoneTextField.text = "\(contact.phoneNumber)"
         emailTextField.text = contact.email
     }
     
@@ -41,15 +42,18 @@ class ContactDetailsViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBAction func saveButtonTapped(_ sender: Any) {
         
+        guard let text = phoneTextField.text else { return }
+        
         guard let name = nameTextField.text, !name.isEmpty,
-            let phoneNumber = Int(phoneTextField.text!),
             let email = emailTextField.text else { return }
         
+        guard let phoneNumber = Int(text) else {
+            return phoneTextField.text = ""
+        }
+        
         if let contact = contact {
-            
             ContactsController.shared.modify(contact: contact, name: name, phoneNumber: phoneNumber, email: email)
         } else {
-            
             ContactsController.shared.addContacts(name: name, phoneNumber: phoneNumber, email: email)
         }
         navigationController?.popViewController(animated: true)

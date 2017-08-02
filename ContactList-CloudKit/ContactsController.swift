@@ -52,7 +52,7 @@ class ContactsController {
             
             guard let record = record else { return }
             
-            let contacts = record.flatMap { Contacts(cloudKitRecord: $0)}
+            let contacts = record.flatMap { Contacts(cloudKitRecord: $0) }
             
             self.contacts = contacts
         }
