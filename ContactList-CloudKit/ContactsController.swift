@@ -55,6 +55,7 @@ class ContactsController {
             let contacts = record.flatMap { Contacts(cloudKitRecord: $0) }
             
             self.contacts = contacts
+            
         }
     }
     
